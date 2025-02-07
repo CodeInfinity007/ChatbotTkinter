@@ -19,6 +19,8 @@ This project is a **Chatbot Application** built using **Tkinter** for the user i
     -   Allow users to open any software from the chatbot.
 
 ----------
+# Preview
+![preview](/image.jpeg)
 
 ## Installation
 
