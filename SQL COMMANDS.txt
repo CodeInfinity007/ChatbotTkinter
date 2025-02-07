@@ -1,0 +1,94 @@
+CREATE DATABASE chat_bot;
+use chat_bot;
+CREATE TABLE replies(reply varchar(200), repID int NOT NULL Primary Key);
+CREATE TABLE questions(que varchar(200), queID int NOT NULL Primary Key);
+CREATE TABLE suggestions(sugID char(5) NOT NULL Primary Key, suggestion varchar(200), suggestion2 varchar(200), suggestion3 varchar(200), suggestion4 varchar(200),repID int, queID int, Foreign Key(repID) References replies(repID), Foreign Key(queID) References questions(queID));
+
+# QUESTIONS
+
+INSERT INTO questions (que, queID)
+VALUES ("hi", 1);
+
+INSERT INTO questions (que, queID)
+VALUES ("hello", 2);
+
+INSERT INTO questions (que, queID)
+VALUES ("what are you", 3);
+
+INSERT INTO questions (que, queID)
+VALUES ("what can you do", 4);
+
+INSERT INTO questions (que, queID)
+VALUES ("who are you", 5);
+
+INSERT INTO questions (que, queID)
+VALUES ("open youtube", 6);
+
+INSERT INTO questions (que, queID)
+VALUES ("open chrome", 7);
+
+INSERT INTO questions (que, queID)
+VALUES ("open spotify", 8);
+
+INSERT INTO questions (que, queID)
+VALUES ("what is the weather", 9);
+
+
+# replies
+
+INSERT INTO replies (reply, repID)
+VALUES ("How may i help you?", 1);
+
+INSERT INTO replies (reply, repID)
+VALUES ("Please guide me in what case i can assist you with?", 2);
+
+INSERT INTO replies (reply, repID)
+VALUES ("Sure!", 3);
+
+INSERT INTO replies (reply, repID)
+VALUES ("I am an application powered with AI created by Divyam Mathur.", 4);
+
+INSERT INTO replies (reply, repID)
+VALUES ("Thrilled that you asked!, see the suggestions area", 5);
+
+INSERT INTO replies (reply, repID)
+VALUES ("Sorry but for the time being, I am not equipped to do that.", 6);
+
+INSERT INTO replies (reply, repID)
+VALUES ("See below", 7);
+
+INSERT INTO replies (reply, repID)
+VALUES ("Just a sec..", 8);
+
+# SUGGESTIONS
+
+INSERT INTO suggestions(sugID, suggestion, suggestion2, suggestion3, repID)
+VALUES ("a", "open youtube", "open chrome", "open spotify", 1);
+
+INSERT INTO suggestions(sugID, suggestion, repID)
+VALUES ("b", "open chrome", 2);
+
+INSERT INTO suggestions (sugID, suggestion, repID)
+VALUES ("c", "open youtube", 2);
+
+INSERT INTO suggestions (sugID, suggestion, repID)
+VALUES ("d", "about me", 2);
+
+INSERT INTO suggestions (sugID, suggestion, repID)
+VALUES ("e", "open any application", 8);
+
+INSERT INTO suggestions (sugID, suggestion, repID)
+VALUES ("f", "Speaking in English", 8);
+
+INSERT INTO suggestions (sugID, suggestion, repID)
+VALUES ("g", "Tell Jokes", 8);
+
+INSERT INTO suggestions (sugID, suggestion, repID)
+VALUES ("h", "Weather Forcasting", 8);
+
+
+
+select * from questions where
+
+
+select reply from replies where repID = (select queID from questions where que = "hi");
